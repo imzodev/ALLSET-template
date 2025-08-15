@@ -22,7 +22,7 @@ const PricingCard: React.FC<{
 }> = ({ name, price, description, features, cta, highlighted }) => {
   return (
     <div
-      className={`group relative rounded-2xl border ${
+      className={`group relative h-full rounded-2xl border ${
         highlighted ? 'border-transparent' : 'border-gray-200 dark:border-gray-800'
       } bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-gray-900`}
     >
@@ -36,7 +36,7 @@ const PricingCard: React.FC<{
         }}
       />
 
-      <div className="relative h-full rounded-2xl p-6">
+      <div className="relative flex h-full flex-col rounded-2xl p-6">
         <div className="flex items-baseline justify-between">
           <h3
             className={`${display.className} text-lg font-semibold text-gray-900 dark:text-white`}
@@ -75,7 +75,7 @@ const PricingCard: React.FC<{
         </ul>
 
         {cta ? (
-          <div className="mt-8">
+          <div className="mt-auto pt-6">
             <Link
               href={cta.link}
               className="group from-primary-600 inline-flex w-full items-center justify-center rounded-md bg-gradient-to-r to-purple-600 px-4 py-2 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_rgba(147,51,234,0.6)] transition-all hover:shadow-[0_12px_36px_-12px_rgba(147,51,234,0.8)]"
@@ -117,7 +117,7 @@ const PricingSection: React.FC<Props> = ({ pricing }) => {
           <div className="mt-2 text-xs text-gray-500 dark:text-gray-400">Moneda: MXN</div>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid grid-cols-1 items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {plans.map((p, idx) => (
             <PricingCard
               key={idx}
